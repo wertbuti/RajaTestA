@@ -1,0 +1,132 @@
+﻿@using RajaTestA.Models.ViewModels
+@model PersonnelAndPersonnelCertificate
+@{
+    ViewData["Title"] = "فهرست مدارک ";
+    ViewData["Title"] += ViewBag.PersonnelFullName;
+}
+<h4 class="bg-secondary text-white container p-2">@ViewData["Title"]</h4>
+
+
+
+<table class="table bg-warning">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(e=>e.PersonnelVM.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(e=>e.PersonnelVM.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(e=>e.PersonnelVM.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(e=>e.PersonnelVM.Mobile)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(e=>e.PersonnelVM.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(e=>e.PersonnelVM.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(e=>e.PersonnelVM.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(e=>e.PersonnelVM.Mobile)
+            </td>
+    </tbody>
+
+</table>
+<p>
+    <a asp-action="Create" asp-route-personnelId="@Model.PersonnelVM.Id" class="btn btn-primary mt-3">مدرک جدید</a>
+    @ViewBag.personnelId
+</p>
+<table class=table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(e=>e.PersonnelCertificateVMs[0].Certificate.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(e=>e.PersonnelCertificateVMs[0].YearCatch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(e=>e.PersonnelCertificateVMs[0].Gpa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PersonnelCertificateVMs)
+        {
+            <tr>
+                <td>
+                    @*<input type="text" value="@ViewBag.personnelId" />
+                    <input type="text" value="@ViewBag.Pers.FullName" />
+                    <input type="text" value="@ViewData["Pers2"]" />*@
+                    @Html.DisplayFor(e=>item.Certificate.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(e=>item.YearCatch)
+                </td>
+                <td>
+                    @Html.DisplayFor(e=>item.Gpa)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">ویرایش</a> 
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">جزئیات</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">حذف</a> 
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@*<table class=table>
+    <thead>
+    <tr>
+    <th>
+    @Html.DisplayNameFor(e=>e.Certificate.Name)
+    </th>
+    <th>
+    @Html.DisplayNameFor(e=>e.YearCatch)
+    </th>
+    <th>
+    @Html.DisplayNameFor(e=>e.Gpa)
+    </th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach(var item in Model)
+    {
+    <tr>
+    <td>
+    <input type="text" value="@ViewBag.personnelId" />
+    <input type="text" value="@ViewBag.Pers.FullName" />
+    <input type="text" value="@ViewData["Pers2"]" />
+    @Html.DisplayFor(e=>item.Certificate.Name)
+    </td>
+    <td>
+    @Html.DisplayFor(e=>item.YearCatch)
+    </td>
+    <td>
+    @Html.DisplayFor(e=>item.Gpa)
+    </td>
+    <td>
+    <a asp-action="Edit" asp-route-id="@item.Id">ویرایش</a> |
+    <a asp-action="Details" asp-route-id="@item.Id">جزئیات</a> |
+    <a asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+    </td>
+    </tr>
+    }
+    </tbody>
+
+    </table>*@

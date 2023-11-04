@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RajaTestA.DataLayer\RajaTestA.DataLayer.csproj" />
+    <ProjectReference Include="..\RajaTestA.DomainEntities\RajaTestA.DomainEntities.csproj" />
+    <ProjectReference Include="..\RajaTestA.Models\RajaTestA.Models.csproj" />
+  </ItemGroup>
+
+</Project>

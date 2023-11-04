@@ -1,0 +1,32 @@
+﻿@using RajaTestA.Models.ViewModels
+@model CertificateVM
+
+@{
+    ViewData["Title"] = "مدرک جدید";
+}
+
+<h4 class="bg-secondary text-white container p-2">@ViewData["Title"]</h4>
+<hr />
+
+<div class="row bg-light p-3">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary mt-3" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-outline-secondary mt-3">بازگشت به فهرست</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

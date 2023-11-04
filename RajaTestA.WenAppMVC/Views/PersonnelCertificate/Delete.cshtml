@@ -1,0 +1,37 @@
+﻿@using RajaTestA.Models.ViewModels
+@model PersonnelCertificateVM
+
+@{
+    ViewData["Title"] = "حذف مدرک پرسنل";
+}
+
+<h4 class="bg-secondary text-white container p-2">@ViewData["Title"]</h4>
+<hr />
+
+<div>
+    <dl class="row bg-light p-3">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(e=>e.Certificate.Name): @Html.DisplayFor(e=>e.Certificate.Name)
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(e=>e.YearCatch): @Html.DisplayFor(e=>e.YearCatch)
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(e=>e.Gpa): @Html.DisplayFor(e=>e.Gpa)
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+    </dl>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="PersonnelId" />
+        <input type="submit" value="حذف" class="btn btn-danger" />
+        <a asp-action="Index" asp-route-personnelId="@Model.PersonnelId" class="btn btn-outline-secondary">بازگشت به فهرست</a>
+    </form>
+</div>
+<div>
+</div>

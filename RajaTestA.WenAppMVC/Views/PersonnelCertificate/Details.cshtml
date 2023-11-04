@@ -1,0 +1,33 @@
+﻿@using RajaTestA.Models.ViewModels
+@model PersonnelCertificateVM
+
+@{
+    ViewData["Title"] = "جرئیات مدرک پرسنل";
+}
+
+<h4 class="bg-secondary text-white container p-2">@ViewData["Title"]</h4>
+<hr />
+
+<div>
+    <dl class="row bg-light p-3">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(e=>e.Certificate.Name): @Html.DisplayFor(e=>e.Certificate.Name)
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(e=>e.YearCatch): @Html.DisplayFor(e=>e.YearCatch)
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(e=>e.Gpa): @Html.DisplayFor(e=>e.Gpa)
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">ویرایش</a>
+    <a asp-action="Index" asp-route-personnelId="@Model.PersonnelId" class="btn btn-outline-secondary">بازگشت به فهرست</a>
+</div>

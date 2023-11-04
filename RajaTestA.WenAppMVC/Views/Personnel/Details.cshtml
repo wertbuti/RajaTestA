@@ -1,0 +1,37 @@
+﻿@using RajaTestA.Models.ViewModels
+@model PersonnelVM
+
+@{
+    ViewData["Title"] = "جزئیات پرسنل";
+}
+
+<h4 class="bg-secondary text-white container p-2">@ViewData["Title"]</h4>
+<hr />
+<div>
+    <dl class="row bg-light p-3">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(e=>e.FirstName): @Html.DisplayFor(e=>e.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(e=>e.LastName): @Html.DisplayFor(e=>e.LastName)
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(e=>e.Age): @Html.DisplayFor(e=>e.Age)
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(e=>e.Mobile): @Html.DisplayFor(e=>e.Mobile)
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">ویرایش</a>
+    <a asp-action="Index" class="btn btn-outline-secondary">بازگشت به فهرست</a>
+</div>

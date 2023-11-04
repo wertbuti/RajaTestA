@@ -1,0 +1,42 @@
+﻿@using RajaTestA.Models.ViewModels
+@model PersonnelCertificateInsertVM
+
+@{
+    ViewData["Title"] = "مدرک جدید برای پرسنل";
+}
+<h4 class="bg-secondary text-white container p-2">@ViewData["Title"]</h4>
+<hr />
+
+<div class="row bg-light p-3">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" name="PersonnelId" value="@ViewBag.personnelId" />
+            <div class="form-group">
+                <label asp-for="CertificateId" class="control-label"></label>
+                <select asp-for="CertificateId" class ="form-control" asp-items="ViewBag.CertificateId"></select>
+                <span asp-validation-for="CertificateId" class="text-danger" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YearCatch" class="control-label"></label>
+                <input asp-for="YearCatch" class="form-control" />
+                <span asp-validation-for="YearCatch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gpa" class="control-label"></label>
+                <input asp-for="Gpa" class="form-control" />
+                <span asp-validation-for="Gpa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary mt-3" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index" asp-route-personnelId="@ViewBag.personnelId" class="btn btn-outline-secondary mt-3">بازگشت به فهرست</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,56 @@
+﻿@using RajaTestA.Models.ViewModels
+@model IEnumerable<PersonnelVM>
+@{
+    ViewData["Title"] = "فهرست پرسنل ها";
+}
+<h4 class="bg-secondary text-white container p-2">@ViewData["Title"]</h4>
+
+<p>
+    <a asp-action="Create" class="btn btn-success mt-3">پرسنل جدید</a>
+</p>
+
+<table class=table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(e=>e.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(e=>e.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(e=>e.Age)
+            </th>
+           <th>
+                @Html.DisplayNameFor(e=>e.Mobile)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(e=>item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(e=>item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(e=>item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(e=>item.Mobile)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">ویرایش</a> 
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">جزئیات</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">حذف</a> 
+                    <a asp-area="" asp-controller="PersonnelCertificate" asp-action="Index" asp-route-personnelId="@item.Id" class="btn btn-info">مدارک پرسنل</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
